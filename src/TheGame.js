@@ -106,6 +106,7 @@ const TheGame = props => {
     const handleGameButton = () => {
         if(gameButton.isPlaying === true){
             setGameButton({text : 'Start Game!', isPlaying : false});
+            setCorrectMathQuestions(0);
         }
         else{
             setGameButton({text : 'Restart Game', isPlaying : true});
