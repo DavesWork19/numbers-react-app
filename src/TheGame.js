@@ -18,8 +18,6 @@ const TheGame = props => {
 
     const [gameButton, setGameButton] = useState({text : 'Start Game!', isPlaying : false});
     const [correctMathQuestions, setCorrectMathQuestions] = useState(0);
-    const [mathQuestionStyle, setMathQuestionStyle] = useState('border border-primary');
-
 
     if(props.level === 'level1') {
         operation = level1Operations[Math.floor(Math.random() * level1Operations.length)];
@@ -122,7 +120,7 @@ const TheGame = props => {
                                                     </p>}
             </div>
             <div className='container'>
-                <div className={`row w-50 mx-auto my-2 rounded-3 ${mathQuestionStyle}`}>
+                <div className={'row w-50 mx-auto my-2 border border-primary rounded-3'}>
                     < MathQuestion question={[firstNumber, operation, secondNumber]} />
                 </div>
                 <div className='row'>
