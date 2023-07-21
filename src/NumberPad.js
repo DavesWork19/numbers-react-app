@@ -2,8 +2,9 @@ import { useState } from 'react';
 
 const NumberPad = props => {
     const [guess, setGuess] = useState('');
-    const finalResult = props.data[1];
     const updateCount = props.data[0];
+    const finalResult = props.data[1];
+    
     
     const handleGuess = userGuess => {
         if(userGuess === 'B'){
