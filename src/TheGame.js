@@ -110,6 +110,7 @@ const TheGame = props => {
         }
         else{
             setGameButton({text : 'Restart Game', isPlaying : true});
+            setCorrectMathQuestions(0);
         }
     }
 
