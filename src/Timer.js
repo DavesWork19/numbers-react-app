@@ -3,12 +3,13 @@ import { TIMER_TIME } from "./constants";
 
 const Timer = props => {
     const [timer, setTimer] = useState(0);
+    const endGame = props.data
 
     useEffect(() => {
         let timesRun = 0;
         const timerInterval = setInterval(() => {
             timesRun = timesRun + 1
-            if(timesRun > TIMER_TIME - 1){
+            if(timesRun > TIMER_TIME){
                 clearInterval(timerInterval);
                 setTimer(0);
             }
@@ -18,9 +19,15 @@ const Timer = props => {
         }, 1000);
     }, []);
 
+    if(timer > TIMER_TIME - 1){
+        endGame();
+    }
+
     return (
         <div>
-            {TIMER_TIME - timer}
+            <div class="progress" role="progressbar" aria-label="Info striped example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar progress-bar-striped bg-info" style={{"width": `${(TIMER_TIME - timer)*1.667}%`}}>{TIMER_TIME - timer}</div>
+            </div>
         </div>
     );
 }

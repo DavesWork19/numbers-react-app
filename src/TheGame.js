@@ -19,7 +19,6 @@ const TheGame = props => {
     const [gameButton, setGameButton] = useState({text : 'Start Game!', isPlaying : false});
     const [correctMathQuestions, setCorrectMathQuestions] = useState(0);
 
-
     if(props.level === 'level1') {
         operation = level1Operations[Math.floor(Math.random() * level1Operations.length)];
         if(operation === '+'){
@@ -98,7 +97,6 @@ const TheGame = props => {
         }
     }
     
-
     const handleMathQuestions = () => {
         setCorrectMathQuestions(current => current + 1);
     }
@@ -109,25 +107,31 @@ const TheGame = props => {
             setCorrectMathQuestions(0);
         }
         else{
-            setGameButton({text : 'Restart Game', isPlaying : true});
+            setGameButton({text : 'End Game', isPlaying : true});
             setCorrectMathQuestions(0);
         }
     }
 
     return (
         <div className='container text-center'>
-            <div>
-                {gameButton.isPlaying && <Timer />}
+            <div className='row'>
+                {gameButton.isPlaying ? <Timer data={handleGameButton} /> : <p class="placeholder-glow">
+                                                        <span class='placeholder col-12 bg-dark'></span>
+                                                    </p>}
             </div>
             <div className='container'>
-                < MathQuestion question={[firstNumber,operation,secondNumber]} />
-                < NumberPad data={[handleMathQuestions, finalResult]} />
+                <div className={'row w-50 mx-auto my-2 border border-primary rounded-3'}>
+                    < MathQuestion question={[firstNumber, operation, secondNumber]} />
+                </div>
+                <div className='row'>
+                    < NumberPad data={[handleMathQuestions, finalResult]} />
+                </div>
             </div>
             <div>
                 {correctMathQuestions}{'   Correct'}
             </div>
-            <div>
-                <button type='button' onClick={handleGameButton} className='btn btn-light border mt-5 mb-3'>{gameButton.text}</button>
+            <div className='row'>
+                <button type='button' onClick={handleGameButton} className='btn btn-light border'>{gameButton.text}</button>
             </div>
         </div>
     );
