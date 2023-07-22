@@ -115,8 +115,13 @@ const TheGame = props => {
     return (
         <div className='container text-center'>
             <div className='row'>
-                {gameButton.isPlaying ? <Timer data={handleGameButton} /> : <p class="placeholder-glow">
-                                                        <span class='placeholder col-12 bg-dark'></span>
+                <div className='col-12 fs-3'>
+                    {correctMathQuestions}{'   Correct'}
+                </div>
+            </div>
+            <div className='row'>
+                {gameButton.isPlaying ? <Timer data={handleGameButton} /> : <p class="placeholder-glow m-0">
+                                                        <span class='placeholder col-12 bg-dark' style={{'height': '50px'}}></span>
                                                     </p>}
             </div>
             <div className='container'>
@@ -127,11 +132,8 @@ const TheGame = props => {
                     < NumberPad data={[handleMathQuestions, finalResult]} />
                 </div>
             </div>
-            <div>
-                {correctMathQuestions}{'   Correct'}
-            </div>
             <div className='row'>
-                <button type='button' onClick={handleGameButton} className='btn btn-light border'>{gameButton.text}</button>
+                <button type='button' onClick={handleGameButton} className='btn btn-secondary border mt-3 p-2'>{gameButton.text}</button>
             </div>
         </div>
     );

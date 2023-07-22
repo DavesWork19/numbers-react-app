@@ -7,9 +7,9 @@ const MathQuestion = props => {
 
     return(
         <div>
-            <div className='ps-4'>{firstNumber}</div>
-            <div>
-            <span className='me-3'>{operation}</span><span>{secondNumber}</span>
+            <div className='ps-4 fs-3'>{firstNumber}</div>
+            <div className='fs-3'>
+                <span className='me-3'>{operation}</span><span>{secondNumber}</span>
             </div>
         </div>
     );

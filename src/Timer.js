@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { TIMER_TIME } from "./constants";
+import { useState, useEffect } from 'react';
+import { TIMER_TIME } from './constants';
 
 const Timer = props => {
     const [timer, setTimer] = useState(0);
@@ -25,8 +25,8 @@ const Timer = props => {
 
     return (
         <div>
-            <div class="progress" role="progressbar" aria-label="Info striped example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
-                <div class="progress-bar progress-bar-striped bg-info" style={{"width": `${(TIMER_TIME - timer)*1.667}%`}}>{TIMER_TIME - timer}</div>
+            <div class='progress' style={{'height': '50px'}} role='progressbar' aria-label='Info striped example' aria-valuenow='50' aria-valuemin='0' aria-valuemax='100'>
+                <div class='progress-bar progress-bar-striped bg-info fs-3' style={{'width': `${(TIMER_TIME - timer)*1.667}%`}}>{TIMER_TIME - timer}</div>
             </div>
         </div>
     );
