@@ -1,9 +1,13 @@
 import { useState } from 'react';
-import MathQuestion from './MathQuestion';
 import NumberPad from './NumberPad';
 import Timer from './Timer';
 
 const TheGame = props => {
+    const [gameButton, setGameButton] = useState({text : 'Start Game!', isPlaying : false});
+    const [correctMathQuestions, setCorrectMathQuestions] = useState(0);
+    const level = props.level;
+
+
     const level1MaxNumber = 20;
     const level2MaxNumber = 30;
     const level3MaxNumber = 40;
@@ -16,10 +20,8 @@ const TheGame = props => {
     let operation;
     let finalResult = 0;
 
-    const [gameButton, setGameButton] = useState({text : 'Start Game!', isPlaying : false});
-    const [correctMathQuestions, setCorrectMathQuestions] = useState(0);
 
-    if(props.level === 'level1') {
+    if(level === 'level1') {
         operation = level1Operations[Math.floor(Math.random() * level1Operations.length)];
         if(operation === '+'){
             firstNumber = Math.floor(Math.random() * level1MaxNumber) + 1;
@@ -37,7 +39,7 @@ const TheGame = props => {
             finalResult = firstNumber - secondNumber;
         }
     }
-    else if(props.level === 'level2') {
+    else if(level === 'level2') {
         operation = level2Operations[Math.floor(Math.random() * level2Operations.length)];
         firstNumber = Math.floor(Math.random() * level2MaxNumber) + 1;
         secondNumber = Math.floor(Math.random() * level2MaxNumber) + 1;
@@ -63,7 +65,7 @@ const TheGame = props => {
             finalResult = firstNumber * secondNumber;
         }
     }
-    else if(props.level === 'level3') {
+    else if(level === 'level3') {
         operation = level3Operations[Math.floor(Math.random() * level3Operations.length)];
         firstNumber = Math.floor(Math.random() * level3MaxNumber) + 1;
         secondNumber = Math.floor(Math.random() * level3MaxNumber) + 1;
@@ -96,6 +98,8 @@ const TheGame = props => {
             finalResult = firstNumber / secondNumber;
         }
     }
+
+
     
     const handleMathQuestions = () => {
         setCorrectMathQuestions(current => current + 1);
@@ -125,11 +129,8 @@ const TheGame = props => {
                                                     </p>}
             </div>
             <div className='container'>
-                <div className={'row w-50 mx-auto my-2 border border-primary rounded-3'}>
-                    < MathQuestion question={[firstNumber, operation, secondNumber]} />
-                </div>
                 <div className='row'>
-                    < NumberPad data={[handleMathQuestions, finalResult]} />
+                    < NumberPad data={[handleMathQuestions, finalResult, firstNumber, operation, secondNumber]} />
                 </div>
             </div>
             <div className='row'>

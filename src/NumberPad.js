@@ -2,8 +2,12 @@ import { useState } from 'react';
 
 const NumberPad = props => {
     const [guess, setGuess] = useState('');
+    const [mathQuestionBorder, setMathQuestionBorder] = useState('border border-primary');
     const updateCount = props.data[0];
     const finalResult = props.data[1];
+    const firstNumber = props.data[2];
+    const operation = props.data[3];
+    const secondNumber = props.data[4];
     
     
     const handleGuess = userGuess => {
@@ -19,9 +23,13 @@ const NumberPad = props => {
 
             if(newGuessInt === finalResult) {
                 setTimeout(() => {
+                    setMathQuestionBorder('border border-primary');
                     updateCount();
                     setGuess('');
                 }, 500)
+                setTimeout(() => {
+                    setMathQuestionBorder('border border-success border-5');
+                }, 100)
             }
         }
     }
@@ -29,6 +37,12 @@ const NumberPad = props => {
 
     return (
         <div className='container'>
+            <div className={`row w-50 mx-auto my-2 ${mathQuestionBorder} rounded-3`}>
+                <div className='ps-4 fs-3'>{firstNumber}</div>
+                <div className='fs-3'>
+                    <span className='me-3'>{operation}</span><span>{secondNumber}</span>
+                </div>
+            </div>
             <div className='row'>
                 <div className='col-12 p-2 fs-3'>
                     {!!guess ? guess : '_'}
