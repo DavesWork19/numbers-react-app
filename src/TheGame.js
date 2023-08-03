@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import NumberPad from './NumberPad';
-import Timer from './Timer';
+import { LEVEL_1, LEVEL_2 } from './constants';
 
 const TheGame = props => {
-    const [gameButton, setGameButton] = useState({text : 'Start Game!', isPlaying : false});
     const [correctMathQuestions, setCorrectMathQuestions] = useState(0);
     const level = props.level;
+    const changeLevel = props.changeLevel;
 
 
     const level1MaxNumber = 20;
@@ -21,7 +21,7 @@ const TheGame = props => {
     let finalResult = 0;
 
 
-    if(level === 'level1') {
+    if(level === LEVEL_1) {
         operation = level1Operations[Math.floor(Math.random() * level1Operations.length)];
         if(operation === '+'){
             firstNumber = Math.floor(Math.random() * level1MaxNumber) + 1;
@@ -39,7 +39,7 @@ const TheGame = props => {
             finalResult = firstNumber - secondNumber;
         }
     }
-    else if(level === 'level2') {
+    else if(level === LEVEL_2) {
         operation = level2Operations[Math.floor(Math.random() * level2Operations.length)];
         firstNumber = Math.floor(Math.random() * level2MaxNumber) + 1;
         secondNumber = Math.floor(Math.random() * level2MaxNumber) + 1;
@@ -65,7 +65,7 @@ const TheGame = props => {
             finalResult = firstNumber * secondNumber;
         }
     }
-    else if(level === 'level3') {
+    else {
         operation = level3Operations[Math.floor(Math.random() * level3Operations.length)];
         firstNumber = Math.floor(Math.random() * level3MaxNumber) + 1;
         secondNumber = Math.floor(Math.random() * level3MaxNumber) + 1;
@@ -102,17 +102,12 @@ const TheGame = props => {
 
     
     const handleMathQuestions = () => {
-        setCorrectMathQuestions(current => current + 1);
-    }
-
-    const handleGameButton = () => {
-        if(gameButton.isPlaying === true){
-            setGameButton({text : 'Start Game!', isPlaying : false});
+        if(correctMathQuestions === 4){
+            changeLevel();
             setCorrectMathQuestions(0);
         }
         else{
-            setGameButton({text : 'End Game', isPlaying : true});
-            setCorrectMathQuestions(0);
+            setCorrectMathQuestions(current => current + 1);
         }
     }
 
@@ -123,18 +118,10 @@ const TheGame = props => {
                     {correctMathQuestions}{'   Correct'}
                 </div>
             </div>
-            <div className='row'>
-                {gameButton.isPlaying ? <Timer data={handleGameButton} /> : <p class="placeholder-glow m-0">
-                                                        <span class='placeholder col-12 bg-dark' style={{'height': '50px'}}></span>
-                                                    </p>}
-            </div>
             <div className='container'>
                 <div className='row'>
                     < NumberPad data={[handleMathQuestions, finalResult, firstNumber, operation, secondNumber]} />
                 </div>
-            </div>
-            <div className='row'>
-                <button type='button' onClick={handleGameButton} className='btn btn-secondary border mt-3 p-2'>{gameButton.text}</button>
             </div>
         </div>
     );

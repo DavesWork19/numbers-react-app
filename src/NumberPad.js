@@ -48,7 +48,7 @@ const NumberPad = props => {
                     {!!guess ? guess : '_'}
                 </div>
             </div>
-            <div className='row border-top border-dark'>
+            <div className='row border border-dark rounded-2'>
                 <div className='col-12'>
                     <div className='row'>
                         <button onClick={() => handleGuess('1')} className='btn btn-outline-dark col-4 p-2 fs-3'>{1}</button>

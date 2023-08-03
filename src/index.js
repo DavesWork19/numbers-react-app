@@ -10,9 +10,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import './index.css';
 import HomeScreen from './HomeScreen';
-import Level1 from './Level1';
-import Level2 from './Level2';
-import Level3 from './Level3';
+import GameContainer from './GameContainer';
 import NoPage from './NoPage';
 import reportWebVitals from './reportWebVitals';
 
@@ -21,9 +19,7 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomeScreen />} />
-        <Route path="/level-1" element={<Level1 />} />
-        <Route path="/level-2" element={<Level2 />} />
-        <Route path="/level-3" element={<Level3 />} />
+        <Route path="/daGame" element={<GameContainer />} />
         <Route path="*" element={<NoPage />} />
       </Routes>
     </BrowserRouter>
