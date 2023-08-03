@@ -32,7 +32,11 @@ const HomeScreen = () => {
                         {GAME_INFO_2}
                     </div>
                 </div>
-                <div>{previousTime ? previousTime : null}</div>
+                <div className='row'>
+                    <div className='col-12 fs-1 text-center pt-5'>
+                        {previousTime ? <div>Previous Time: {previousTime}<span className='fs-3'>seconds</span></div> : null}
+                    </div>
+                </div>
             </main>
         </>
     );

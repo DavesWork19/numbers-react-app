@@ -29,14 +29,18 @@ const GameContainer = () => {
     }, []);
 
     const handleTimerUpdate = time => {
-        navigate('/',{state:{time:time}});
+        setTimeout(() => {
+            navigate('/',{state:{time:time}});
+        }, 10)
     }
 
     const handleChangeLevel = () => {
         if(currentLevel === LEVEL_3){
             setUpdateTimer(STOP_GAME);
         }
-        setCurrentLevel(oldLevel => oldLevel + 1);
+        else{
+            setCurrentLevel(oldLevel => oldLevel + 1);
+        }
     }
 
     return (
