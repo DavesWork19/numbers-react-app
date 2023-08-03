@@ -102,7 +102,7 @@ const TheGame = props => {
 
     
     const handleMathQuestions = () => {
-        if(correctMathQuestions === 0){
+        if(correctMathQuestions === 4){
             changeLevel();
             setCorrectMathQuestions(0);
         }
