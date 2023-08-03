@@ -3,16 +3,14 @@ import Header from './Header';
 import Timer from './Timer';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { LEVEL_1_TIMER, LEVEL_3, STOP_GAME } from './constants'
+import { LEVEL_1_TIMER, LEVEL_1, LEVEL_2, LEVEL_3, STOP_GAME } from './constants'
 
 const GameContainer = () => {
     const navigate = useNavigate();
     const [countingDown, setCountingDown] = useState(true)
     const [countDownTimer, setCountDownTimer] = useState(LEVEL_1_TIMER);
     const [updateTimer, setUpdateTimer] = useState('');
-    const [currentLevel, setCurrentLevel] = useState(1);
-
-    //document.body.style.backgroundColor = '#90EE90';
+    const [currentLevel, setCurrentLevel] = useState({level:1,color:'bg-success-subtle'});
 
     useEffect(() => {
         let timesRun = LEVEL_1_TIMER;
@@ -35,27 +33,30 @@ const GameContainer = () => {
     }
 
     const handleChangeLevel = () => {
-        if(currentLevel === LEVEL_3){
-            setUpdateTimer(STOP_GAME);
+        if(currentLevel.level === LEVEL_1){
+            setCurrentLevel({level:2,color:'bg-primary-subtle'});
         }
-        else{
-            setCurrentLevel(oldLevel => oldLevel + 1);
+        else if (currentLevel.level === LEVEL_2){
+            setCurrentLevel({level:3,color:'bg-danger-subtle'});
+        }
+        else if(currentLevel.level === LEVEL_3){
+            setUpdateTimer(STOP_GAME);
         }
     }
 
     return (
         countingDown ? <div className='pb-5'>
                             <Header level={1} />
-                            <main className='container text-center'>
+                            <main className='container text-center fs-1 pt-5 mt-5'>
                                 {countDownTimer}
                             </main>
                         </div>
         :
-        <div className='pb-5'>
-            <Header level={currentLevel} />
-            <main className='container text-center'>
+        <div>
+            <Header level={currentLevel.level} />
+            <main className={`container text-center ${currentLevel.color} pb-5`}>
                 <Timer updateTimer={updateTimer} handleTimerUpdate={handleTimerUpdate}/>
-                <TheGame level={currentLevel} changeLevel={handleChangeLevel}/>
+                <TheGame level={currentLevel.level} changeLevel={handleChangeLevel}/>
             </main>
         </div>
     );
