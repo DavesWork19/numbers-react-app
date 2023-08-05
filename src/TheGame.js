@@ -10,7 +10,7 @@ const TheGame = props => {
 
     const level1MaxNumber = 20;
     const level2MaxNumber = 30;
-    const level2MaxNumberMultiplication = 12;
+    const level2MaxNumberMultiplication = 9;
     const level3MaxNumber = 40;
     const level3MaxNumberMultiplication = 13;
     const level1Operations = ['+', '-']
