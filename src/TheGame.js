@@ -10,7 +10,9 @@ const TheGame = props => {
 
     const level1MaxNumber = 20;
     const level2MaxNumber = 30;
+    const level2MaxNumberMultiplication = 12;
     const level3MaxNumber = 40;
+    const level3MaxNumberMultiplication = 13;
     const level1Operations = ['+', '-']
     const level2Operations = ['+', '-', 'X']
     const level3Operations = ['+', '-', 'X', '%']
@@ -41,9 +43,6 @@ const TheGame = props => {
     }
     else if(level === LEVEL_2) {
         operation = level2Operations[Math.floor(Math.random() * level2Operations.length)];
-        firstNumber = Math.floor(Math.random() * level2MaxNumber) + 1;
-        secondNumber = Math.floor(Math.random() * level2MaxNumber) + 1;
-        operation = level2Operations[Math.floor(Math.random() * level2Operations.length)];
         if(operation === '+'){
             firstNumber = Math.floor(Math.random() * level2MaxNumber) + 1;
             secondNumber = Math.floor(Math.random() * level2MaxNumber) + 1;
@@ -60,15 +59,12 @@ const TheGame = props => {
             finalResult = firstNumber - secondNumber;
         }
         else{
-            firstNumber = Math.floor(Math.random() * level2MaxNumber) + 1;
-            secondNumber = Math.floor(Math.random() * level2MaxNumber) + 1;
+            firstNumber = Math.floor(Math.random() * level2MaxNumberMultiplication) + 1;
+            secondNumber = Math.floor(Math.random() * level2MaxNumberMultiplication) + 1;
             finalResult = firstNumber * secondNumber;
         }
     }
     else {
-        operation = level3Operations[Math.floor(Math.random() * level3Operations.length)];
-        firstNumber = Math.floor(Math.random() * level3MaxNumber) + 1;
-        secondNumber = Math.floor(Math.random() * level3MaxNumber) + 1;
         operation = level3Operations[Math.floor(Math.random() * level3Operations.length)];
         if(operation === '+'){
             firstNumber = Math.floor(Math.random() * level3MaxNumber) + 1;
@@ -86,8 +82,8 @@ const TheGame = props => {
             finalResult = firstNumber - secondNumber;
         }
         else if(operation === 'X'){
-            firstNumber = Math.floor(Math.random() * level3MaxNumber) + 1;
-            secondNumber = Math.floor(Math.random() * level3MaxNumber) + 1;
+            firstNumber = Math.floor(Math.random() * level3MaxNumberMultiplication) + 1;
+            secondNumber = Math.floor(Math.random() * level3MaxNumberMultiplication) + 1;
             finalResult = firstNumber * secondNumber;
         }
         else{
@@ -112,7 +108,7 @@ const TheGame = props => {
     }
 
     return (
-        <div className='container text-center'>
+        <div className='container text-center regularText'>
             <div className='row'>
                 <div className='col-12 fs-3'>
                     {correctMathQuestions}{'   Correct'}

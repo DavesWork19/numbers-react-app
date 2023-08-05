@@ -1,6 +1,8 @@
 import { useNavigate, useLocation } from 'react-router-dom';
 import InfoButton from './InfoButton'
 import { GREETINGS } from './constants'
+import numbersLogo from './NumbersLogo.svg';
+import './Fonts.css';
 
 
 const HomeScreen = () => {
@@ -15,28 +17,29 @@ const HomeScreen = () => {
 
     return (
         <>
-            <div className={'container text-center pb-3 pt-3 border-bottom border-dark'}>
+            <div className={'container text-center pb-4 pt-3 border-bottom border-dark'}>
                 <div className='row'>
-                    <h1 className='col-8 fs-3'>{'The Numbers Game'}</h1>
+                    <h1 className='col-8 fs-3 my-auto regularText'>{'The Numbers Game'}</h1>
+                    <img className='col-2 pe-0 ms-4' src={numbersLogo} alt='NumberIcon'/>
                 </div>
+            </div>
+            <main className='container pt-5 mt-5 text-center'>
                 <div className='row'>
-                    <div className='col-12 fs-2'>
+                    <div className='col-12 fs-1 pb-5 mb-5 regularText'>
                         {randomGreeting}
                     </div>       
                 </div>
-            </div>
-            <main className='container pt-5 mt-5'>
                 <div className='row'>
-                    <button type='button' onClick={() => handleButtonClick('/daGame')} className='btn btn-light border col m-2'>
+                    <button type='button' onClick={() => handleButtonClick('/daGame')} className='btn btn-dark border col m-2 regularText'>
                         <h2>Start!</h2>
                     </button>
                 </div>
-                <InfoButton />
                 <div className='row'>
-                    <div className='col-12 fs-1 text-center pt-5'>
-                        {previousTime ? <div>Previous Time: {previousTime}<span className='fs-3'>seconds</span></div> : null}
+                    <div className='col-12 fs-1 pt-2 regularText'>
+                        {previousTime ? <div>Previous Time:<div className='fs-3'>{previousTime} seconds</div></div> : null}
                     </div>
                 </div>
+                <InfoButton />
             </main>
         </>
     );

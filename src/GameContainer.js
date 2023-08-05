@@ -4,6 +4,7 @@ import Timer from './Timer';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { LEVEL_1_TIMER, LEVEL_1, LEVEL_2, LEVEL_3, STOP_GAME } from './constants'
+import './Fonts.css';
 
 const GameContainer = () => {
     const navigate = useNavigate();
@@ -45,9 +46,9 @@ const GameContainer = () => {
     }
 
     return (
-        countingDown ? <div className='pb-5'>
+        countingDown ? <div>
                             <Header level={1} />
-                            <main className='container text-center fs-1 pt-5 mt-5'>
+                            <main className='container text-center bg-success-subtle regularText test fs-1 pt-5'>
                                 {countDownTimer}
                             </main>
                         </div>

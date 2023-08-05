@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'regularText';
+    src: url('./../fonts/Haarlem\ Sans.ttf');
+}
+
+.regularText {
+    font-family: 'regularText';
+}
+
+.test {
+    height: 82vh;
+}

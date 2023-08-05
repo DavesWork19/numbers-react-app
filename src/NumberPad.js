@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 const NumberPad = props => {
     const [guess, setGuess] = useState('');
+    const buttonRef = useRef(null);
     const [mathQuestionBorder, setMathQuestionBorder] = useState('border border-primary');
     const updateCount = props.data[0];
     const finalResult = props.data[1];
@@ -16,7 +17,6 @@ const NumberPad = props => {
             setGuess(newGuess);
         }
         else {
-            
             const newGuess = guess.concat(userGuess);
             setGuess(newGuess);
             const newGuessInt = parseInt(newGuess);
@@ -51,25 +51,25 @@ const NumberPad = props => {
             <div className='row border border-dark rounded-2'>
                 <div className='col-12'>
                     <div className='row'>
-                        <button onClick={() => handleGuess('1')} className='btn btn-outline-dark col-4 p-2 fs-3'>{1}</button>
-                        <button onClick={() => handleGuess('2')} className='btn btn-outline-dark col-4 p-2 fs-3'>{2}</button>
-                        <button onClick={() => handleGuess('3')} className='btn btn-outline-dark col-4 p-2 fs-3'>{3}</button>
+                        <button onClick={(event) => handleGuess('1',event)} ref={buttonRef} className='btn btn-outline-dark col-4 p-2 fs-3'>{1}</button>
+                        <button onClick={(event) => handleGuess('2',event)} ref={buttonRef} className='btn btn-outline-dark col-4 p-2 fs-3'>{2}</button>
+                        <button onClick={(event) => handleGuess('3',event)} ref={buttonRef} className='btn btn-outline-dark col-4 p-2 fs-3'>{3}</button>
                     </div>
                     <div className='row'>
-                        <button onClick={() => handleGuess('4')} className='btn btn-outline-dark col-4 p-2 fs-3'>{4}</button>
-                        <button onClick={() => handleGuess('5')} className='btn btn-outline-dark col-4 p-2 fs-3'>{5}</button>
-                        <button onClick={() => handleGuess('6')} className='btn btn-outline-dark col-4 p-2 fs-3'>{6}</button>
+                        <button onClick={(event) => handleGuess('4',event)} ref={buttonRef} className='btn btn-outline-dark col-4 p-2 fs-3'>{4}</button>
+                        <button onClick={(event) => handleGuess('5',event)} ref={buttonRef} className='btn btn-outline-dark col-4 p-2 fs-3'>{5}</button>
+                        <button onClick={(event) => handleGuess('6',event)} ref={buttonRef} className='btn btn-outline-dark col-4 p-2 fs-3'>{6}</button>
                     </div>
                     <div className='row'>
-                        <button onClick={() => handleGuess('7')} className='btn btn-outline-dark col-4 p-2 fs-3'>{7}</button>
-                        <button onClick={() => handleGuess('8')} className='btn btn-outline-dark col-4 p-2 fs-3'>{8}</button>
-                        <button onClick={() => handleGuess('9')} className='btn btn-outline-dark col-4 p-2 fs-3'>{9}</button>
+                        <button onClick={(event) => handleGuess('7',event)} ref={buttonRef} className='btn btn-outline-dark col-4 p-2 fs-3'>{7}</button>
+                        <button onClick={(event) => handleGuess('8',event)} ref={buttonRef} className='btn btn-outline-dark col-4 p-2 fs-3'>{8}</button>
+                        <button onClick={(event) => handleGuess('9',event)} ref={buttonRef} className='btn btn-outline-dark col-4 p-2 fs-3'>{9}</button>
                     </div>
                     <div className='row'>
-                        <button onClick={() => handleGuess('0')} className='btn btn-outline-dark col-12 p-2 fs-3'>{0}</button>
+                        <button onClick={(event) => handleGuess('0',event)} ref={buttonRef} className='btn btn-outline-dark col-12 p-2 fs-3'>{0}</button>
                     </div>
                     <div className='row'>
-                        <button onClick={() => handleGuess('B')} className='btn btn-outline-dark col-12 p-2 fs-3'>{'BACK'}</button>
+                        <button onClick={(event) => handleGuess('B',event)} ref={buttonRef} className='btn btn-outline-dark col-12 p-2 fs-3'>{'BACK'}</button>
                     </div>
                 </div>
             </div>
