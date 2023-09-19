@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { STOP_GAME } from './constants';
+import './Fonts.css';
 
 const Timer = props => {
     const [timer, setTimer] = useState(0);
@@ -19,8 +20,8 @@ const Timer = props => {
 
     return (
         <div>
-            <div className='progress' style={{'height': '50px'}} role='progressbar' aria-label='Info striped example' aria-valuenow='50' aria-valuemin='0' aria-valuemax='100'>
-                <div className='progress-bar progress-bar-striped bg-info fs-3' style={{'width': `${timer/2}%`}}>{timer}</div>
+            <div className='progress bg-dark' style={{'height': '50px'}} role='progressbar' aria-label='Info striped example' aria-valuenow='50' aria-valuemin='0' aria-valuemax='100'>
+                <div className='progress-bar progress-bar-striped bg-info fs-3 text-dark regularText' style={{'width': `${timer}%`}}>{timer}</div>
             </div>
         </div>
     );
