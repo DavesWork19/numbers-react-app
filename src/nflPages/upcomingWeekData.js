@@ -1,0 +1,18 @@
+export const upcomingWeekData = [
+'09/14/23_08:15_PM_EDT_Vikings_Eagles_72_Clear_13',
+'09/17/23_01:00_PM_EDT_Packers_Falcons_75_Mostly Cloudy_11',
+'09/17/23_01:00_PM_EDT_Raiders_Bills_70_Mostly Cloudy_6',
+'09/17/23_01:00_PM_EDT_Ravens_Bengals_66_Clear_0',
+'09/17/23_01:00_PM_EDT_Seahawks_Lions_72_Clear_5',
+'09/17/23_01:00_PM_EDT_Chargers_Titans_68_Mostly Cloudy_14',
+'09/17/23_01:00_PM_EDT_Bears_Buccaneers_87_Partly Cloudy_6',
+'09/17/23_01:00_PM_EDT_Chiefs_Jaguars_86_Mostly Cloudy_5',
+'09/17/23_01:00_PM_EDT_Colts_Texans_88_Clear_8',
+'09/17/23_04:05_PM_EDT_49ers_Rams_70_Overcast_5',
+'09/17/23_04:05_PM_EDT_Giants_Cardinals_93_Clear_0',
+'09/17/23_04:25_PM_EDT_Jets_Cowboys_86_Clear_9',
+'09/17/23_04:25_PM_EDT_Washington_Broncos_79_Clear_0',
+'09/17/23_08:20_PM_EDT_Dolphins_Patriots_64_Clear_0',
+'09/18/23_07:15_PM_EDT_Saints_Panthers_75_Clear_6',
+'09/18/23_08:15_PM_EDT_Browns_Steelers_63_Partly Cloudy_5',
+];

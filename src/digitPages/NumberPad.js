@@ -1,6 +1,8 @@
 import { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const NumberPad = (props) => {
+  const navigate = useNavigate();
   const [guess, setGuess] = useState('');
   const buttonRef = useRef(null);
   const [mathQuestionBorder, setMathQuestionBorder] = useState(
@@ -30,6 +32,10 @@ const NumberPad = (props) => {
         setTimeout(() => {
           setMathQuestionBorder('border border-success border-5');
         }, 100);
+      } else if (newGuessInt === 2332220) {
+        setTimeout(() => {
+          navigate('/2332220');
+        }, 10);
       }
     }
   };

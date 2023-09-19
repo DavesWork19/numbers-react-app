@@ -1,12 +1,26 @@
 @font-face {
-    font-family: 'regularText';
-    src: url('./../fonts/Haarlem\ Sans.ttf');
+  font-family: 'regularText';
+  src: url('./../fonts/Haarlem\ Sans.ttf');
+}
+
+@font-face {
+  font-family: 'nflSiteText';
+  src: url('../fonts/EASPORTS15.ttf');
+}
+
+.nflSiteText {
+  font-family: 'nflSiteText';
+  color: black;
+  font-weight: lighter;
+}
+.lightText {
+  color: slategray;
 }
 
 .regularText {
-    font-family: 'regularText';
+  font-family: 'regularText';
 }
 
 .test {
-    height: 82vh;
+  height: 82vh;
 }

@@ -9,8 +9,10 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import './index.css';
-import HomeScreen from './HomeScreen';
-import GameContainer from './GameContainer';
+import HomeScreen from './digitPages/HomeScreen';
+import HomePage from './nflPages/HomePage';
+import MatchupPage from './nflPages/MatchupPage';
+import GameContainer from './digitPages/GameContainer';
 import NoPage from './NoPage';
 import reportWebVitals from './reportWebVitals';
 
@@ -20,6 +22,8 @@ root.render(
     <Routes>
       <Route path='/' element={<HomeScreen />} />
       <Route path='/daGame' element={<GameContainer />} />
+      <Route path='/2332220' element={<HomePage />} />
+      <Route path='/2332220/:teams' element={<MatchupPage />} />
       <Route path='*' element={<NoPage />} />
     </Routes>
   </BrowserRouter>
