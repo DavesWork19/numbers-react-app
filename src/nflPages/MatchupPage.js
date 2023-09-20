@@ -22,22 +22,23 @@ const MatchupPage = () => {
   ] = results.split(',');
 
   return (
-    <div className='nflSiteText'>
-      <h1 className='lightText'>
+    <div className='nflSiteText pb-5 bg-black vh-100 container-fluid'>
+      <h1 className='lightText pb-5 pt-5'>
         {awayTeam}
         {' at the '}
         {homeTeam}
       </h1>
 
       <div className='row lightText'>
-        <div className='col-12'>
-          {finalResultsPercent}% chance of {finalResultsWinner} winning
+        <div className='col-12 timeText fs-3'>
+          {finalResultsPercent}%{' '}
+          <span className='nflSiteTextRaw'>{`chance of ${finalResultsWinner} winning`}</span>
         </div>
       </div>
-      <div className='row lightText'>
-        <div className='col-12'>Loser: {finalResultsLoser}</div>
+      <div className='row lightText pb-5 fs-3'>
+        <div className='col-12'>and {finalResultsLoser} Losing</div>
       </div>
-      <Link to='/2332220'>
+      <Link to='/2332220' className='pb-5'>
         <button className='matchupButton nflSiteText'>{backButton}</button>
       </Link>
     </div>

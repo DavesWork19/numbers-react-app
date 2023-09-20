@@ -15,24 +15,24 @@ export const TeamsPercents = (teams) => {
   return (
     <div className='pb-sm-5 mb-sm-5'>
       <h4 className='row'>
-        <span className='col-12 text-start ps-1 ps-md-3 ps-lg-5 col-md-5'>{`${teamsPercentages[3].team}`}</span>
-        <span className='col-12 col-md-2'>{''}</span>
-        <span className='col-12 text-start px-1 ps-md-4 col-md-5'>{`${teamsPercentages[3].percent}%`}</span>
+        <span className='col-12 text-start ps-1 ps-sm-3 ps-lg-5 col-sm-5 nflSiteTeamText'>{`${teamsPercentages[3].team}`}</span>
+        <span className='col-12 col-sm-2'>{''}</span>
+        <span className='col-12 text-start px-1 ps-sm-4 col-sm-5 nflSiteTeamText'>{`${teamsPercentages[3].percent}%`}</span>
       </h4>
       <h4 className='row'>
-        <span className='col-12 text-start ps-1 ps-md-3 ps-lg-5 col-md-5'>{`${teamsPercentages[2].team}`}</span>
-        <span className='col-12 col-md-2'>{''}</span>
-        <span className='col-12 text-start px-1 ps-md-4 col-md-5'>{`${teamsPercentages[2].percent}%`}</span>
+        <span className='col-12 text-start ps-1 ps-sm-3 ps-lg-5 col-sm-5 nflSiteTeamText'>{`${teamsPercentages[2].team}`}</span>
+        <span className='col-12 col-sm-2'>{''}</span>
+        <span className='col-12 text-start px-1 ps-sm-4 col-sm-5 nflSiteTeamText'>{`${teamsPercentages[2].percent}%`}</span>
       </h4>
       <h4 className='row'>
-        <span className='col-12 text-start ps-1 ps-md-3 ps-lg-5 col-md-5'>{`${teamsPercentages[1].team}`}</span>
-        <span className='col-12 col-md-2'>{''}</span>
-        <span className='col-12 text-start px-1 ps-md-4 col-md-5'>{`${teamsPercentages[1].percent}%`}</span>
+        <span className='col-12 text-start ps-1 ps-sm-3 ps-lg-5 col-sm-5 nflSiteTeamText'>{`${teamsPercentages[1].team}`}</span>
+        <span className='col-12 col-sm-2'>{''}</span>
+        <span className='col-12 text-start px-1 ps-sm-4 col-sm-5 nflSiteTeamText'>{`${teamsPercentages[1].percent}%`}</span>
       </h4>
       <h4 className='row'>
-        <span className='col-12 text-start ps-1 ps-md-3 ps-lg-5 col-md-5'>{`${teamsPercentages[0].team}`}</span>
-        <span className='col-12 col-md-2'>{''}</span>
-        <span className='col-12 text-start px-1 ps-md-4 col-md-5'>{`${teamsPercentages[0].percent}%`}</span>
+        <span className='col-12 text-start ps-1 ps-sm-3 ps-lg-5 col-sm-5 nflSiteTeamText'>{`${teamsPercentages[0].team}`}</span>
+        <span className='col-12 col-sm-2'>{''}</span>
+        <span className='col-12 text-start px-1 ps-sm-4 col-sm-5 nflSiteTeamText'>{`${teamsPercentages[0].percent}%`}</span>
       </h4>
     </div>
   );
@@ -58,34 +58,5 @@ export const DivisionPercent = (division) => {
       <span className='col-2'>{''}</span>
       <span className='col-5'>{`${percentages[division].toFixed(2)}%`}</span>
     </h2>
-  );
-};
-
-export const WeeklyPercents = () => {
-  const weekArray = [];
-
-  for (const line in percentages) {
-    if (line.includes('Week')) {
-      weekArray.push(line);
-    }
-  }
-
-  return (
-    <div className='col-12 table-responsive weeklyPercentData'>
-      <table className='table'>
-        {weekArray.map((week) => (
-          <span className='lightText me-2'>
-            <thead>
-              <tr>{week}</tr>
-            </thead>
-            <tbody>
-              <tr className='weeklyPercentData'>
-                {percentages[week].toFixed(2)}
-              </tr>
-            </tbody>
-          </span>
-        ))}
-      </table>
-    </div>
   );
 };

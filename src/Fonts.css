@@ -4,10 +4,34 @@
 }
 
 @font-face {
+  font-family: 'popWarner';
+  src: url('./../fonts/Pop\ Warner.ttf');
+}
+
+@font-face {
   font-family: 'nflSiteText';
   src: url('../fonts/EASPORTS15.ttf');
 }
+@media (min-width: 851px) {
+  .timeMobileText {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 850px) {
+  .nflSiteTeamText {
+    font-size: 1.1rem;
+  }
+}
+@media (max-width: 500px) {
+  .timeMobileText {
+    font-size: 0.9rem;
+  }
+}
 
+.nflSiteTextRaw {
+  font-family: 'nflSiteText';
+  font-weight: lighter;
+}
 .nflSiteText {
   font-family: 'nflSiteText';
   color: black;
@@ -15,6 +39,9 @@
 }
 .lightText {
   color: slategray;
+}
+.timeText {
+  font-family: 'popWarner';
 }
 
 .regularText {

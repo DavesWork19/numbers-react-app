@@ -70,6 +70,8 @@ import ramLogo from '../logos/ramLogo.png';
 import seaLogo from '../logos/seaLogo.png';
 import sfoLogo from '../logos/sfoLogo.png';
 
+import '../Fonts.css';
+
 const Matchups = () => {
   const setHomeTeam = (homeTeam) => {
     if (homeTeam === buf) {
@@ -207,7 +209,7 @@ const Matchups = () => {
     }
   };
 
-  return upcomingWeekData.map((data) => {
+  return upcomingWeekData.slice(1).map((data) => {
     const [
       date,
       time,
@@ -219,10 +221,17 @@ const Matchups = () => {
       weather,
       wind,
     ] = data.split('_');
+    const link = `${awayTeam}At${homeTeam}`;
+    const [hour, minute] = time.split(':');
+    const timeLabel = `${parseInt(hour)}:${minute} ${am_pm} ${timeZone}`;
 
     return (
-      <Link to={`${awayTeam}At${homeTeam}`}>
-        <button className='btn btn-light mt-1 mb-5'>
+      <Link to={link} key={link}>
+        <button className='btn btn-light mt-1 mb-5 px-0'>
+          <div className='timeText timeMobileText'>{date}</div>
+          <div className='timeText timeMobileText border-bottom border-black mb-1'>
+            {timeLabel}
+          </div>
           <span>
             {setAwayTeam(awayTeam)}
             <img className='ps-1 pe-1' src={ATLogo} alt='atLogo' />

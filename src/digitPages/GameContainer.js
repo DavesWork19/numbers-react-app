@@ -52,16 +52,16 @@ const GameContainer = () => {
   };
 
   return countingDown ? (
-    <div>
+    <div className='vw-100'>
       <Header level={1} />
-      <main className='container text-center bg-success-subtle regularText test fs-1 pt-5'>
+      <main className='text-center bg-success-subtle regularText vh-100 fs-1 pt-5'>
         {countDownTimer}
       </main>
     </div>
   ) : (
-    <div>
+    <div className='vw-100'>
       <Header level={currentLevel.level} />
-      <main className={`container text-center ${currentLevel.color} pb-5`}>
+      <main className={`text-center ${currentLevel.color} pb-5`}>
         <Timer
           updateTimer={updateTimer}
           handleTimerUpdate={handleTimerUpdate}

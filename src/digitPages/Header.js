@@ -21,7 +21,7 @@ const Header = (props) => {
   };
 
   return (
-    <div className={`container text-center ${homeButtonColor}`}>
+    <div className={`container-fluid text-center ${homeButtonColor}`}>
       <div className={'row pb-4 pt-3 border-bottom border-dark'}>
         <h1 className='col-8 fs-3 my-auto regularText'>{'The Numbers Game'}</h1>
         <div

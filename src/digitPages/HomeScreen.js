@@ -3,6 +3,7 @@ import InfoButton from './InfoButton';
 import { GREETINGS } from '../constants';
 import numbersLogo from './NumbersLogo.svg';
 import '../Fonts.css';
+import './HomeScreen.css';
 
 const HomeScreen = () => {
   const navigate = useNavigate();
